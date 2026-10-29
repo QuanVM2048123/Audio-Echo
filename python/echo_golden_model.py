@@ -4,14 +4,14 @@ Golden model for the Digital Echo Effect.
 
 Equation:   y[n] = saturate( x[n] + alpha * x[n - D] )
 
-    x[n]   : current input sample   (16-bit signed, two's complement)
-    y[n]   : current output sample  (16-bit signed, two's complement)
-    alpha  : gain = 0.5
-    D      : delay in samples
+    x[n]  : current input sample   (16-bit signed, two's complement)
+    y[n]  : current output sample  (16-bit signed, two's complement)
+    alpha : gain = 0.5
+    D     : delay in samples
     saturate: clamp the result to the 16-bit range [-32768, 32767]
 
-Input  file : text file, one 16-bit hex sample per line (e.g. 5555, B272, 26BF)
-Output file : expected.hex, same format (4 uppercase hex digits per line)
+Input  file: text file, one 16-bit hex sample per line (e.g. 5555, B272, 26BF)
+Output file: expected.hex, same format
 """
 
 import sys
@@ -19,9 +19,9 @@ import sys
 # ----------------------------------------------------------------------
 # Settings
 # ----------------------------------------------------------------------
-INPUT_FILE = "input.hex"       # default input file
-OUTPUT_FILE = "expected.hex"   # output file that your testbench compares against
-DELAY = 4800                   # default delay D, in samples
+INPUT_FILE = "input.hex"       # input file
+OUTPUT_FILE = "expected.hex"   # output file
+DELAY = 4800                   # delay D, in samples
 
 # Limits of a 16-bit signed number
 MAX_VAL = 32767     # 0x7FFF  (largest positive value)
@@ -59,7 +59,7 @@ def apply_gain_half(value):
 
 
 # ----------------------------------------------------------------------
-# The echo effect itself
+# Echo effect
 # ----------------------------------------------------------------------
 def echo(samples, delay):
     """Apply the echo to a list of signed samples and return the output list."""
@@ -80,7 +80,7 @@ def echo(samples, delay):
 
 
 # ----------------------------------------------------------------------
-# File reading / writing
+# File reading/writing
 # ----------------------------------------------------------------------
 def read_samples(filename):
     """Read a hex text file (one sample per line) into a list of signed ints."""
@@ -115,12 +115,12 @@ def main():
     if delay < 0:
         sys.exit("Error: the delay D must be 0 or larger.")
 
-    x = read_samples(input_file)      # read input samples
-    y = echo(x, delay)                # run the echo model
-    write_samples(OUTPUT_FILE, y)     # save the expected result
+    sample_in = read_samples(input_file)      # read input samples
+    sample_out = echo(sample_in, delay)       # run the echo model
+    write_samples(OUTPUT_FILE, sample_out)    # save the expected result
 
-    print(f"Read {len(x)} samples from {input_file}, D = {delay}")
-    print(f"Wrote {len(y)} samples to {OUTPUT_FILE}")
+    print(f"Read {len(sample_in)} samples from {input_file}, D = {delay}")
+    print(f"Wrote {len(sample_out)} samples to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
