@@ -122,7 +122,6 @@ module tb_echo_top;
         if (in_count == MAX_SAMPLES)
             $display("WARNING: input may be longer than MAX_SAMPLES=%0d, increase it", MAX_SAMPLES);
 
-        // expected_output.hex
         $readmemh(EXPECTED_FILE, r_expected);
 
         while (exp_count < MAX_SAMPLES && (^r_expected[exp_count] !== 1'bx))
@@ -177,7 +176,7 @@ module tb_echo_top;
         $fclose(fout);
 
         // --------------------------------------------------------
-        // Print summary
+        // Summary
         // --------------------------------------------------------
 
         if (compare_en && exp_count > out_count) begin
