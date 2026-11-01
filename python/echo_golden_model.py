@@ -20,7 +20,7 @@ import sys
 # Settings
 # ----------------------------------------------------------------------
 INPUT_FILE = "input.hex"       # input file
-OUTPUT_FILE = "expected.hex"   # output file
+OUTPUT_FILE = "expected_output.hex"   # output file
 DELAY = 4800                   # delay D, in samples
 
 # Limits of a 16-bit signed number
