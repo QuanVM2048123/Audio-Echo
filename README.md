@@ -122,9 +122,8 @@ python tools/hex_to_wav.py
 | Mismatches | 0 |
 | Result | **PASS** |
 
-![Testbench result](testbench/tb_result.png)
-
 ![Testbench waveform](testbench/tb_waveform.png)
+![Testbench result](testbench/tb_result.png)
 
 ---
 
