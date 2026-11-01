@@ -1,6 +1,6 @@
 # Audio Echo
 
-Digital echo effect for 16-bit mono audio, written in **Verilog**.
+Digital echo effect for 16-bit mono audio, written in Verilog.
 The design adds a delayed and halved copy of the audio to the current sample.
 
 ```text
@@ -24,8 +24,7 @@ y[n] = saturate( x[n] + 0.5 * x[n - D] )
 ---
 
 ## Design
-
-<img width="2251" height="1210" alt="image" src="https://github.com/user-attachments/assets/14395d3c-642e-473a-b4d9-989199cf6ac4" />
+<img width="2259" height="1219" alt="HLD" src="https://github.com/user-attachments/assets/ea144ac2-7a26-4935-bcc2-61ec42282dd4" />
 
 
 | Module | Function |
@@ -133,7 +132,14 @@ MIT License. See [LICENSE](LICENSE).
 
 ---
 
-## Author
+## References
 
-**<Your Name>**  
-FPT University
+[1] YouTube, "What's An Echo?," [Video]. [Online]. Available: https://youtu.be/y0TyDa8PepM
+
+[2] T. Thormählen, "Audio Effects," *Multimedia Signal Processing*, University of Marburg, June 17, 2024. [Online]. Available: https://www.mathematik.uni-marburg.de/~thormae/lectures/mmk/mmk_5_2_eng_web.html
+
+[3] J. D. Reiss and A. P. McPherson, *Audio Effects: Theory, Implementation and Application*. Boca Raton, FL: CRC Press, 2015. [Online]. Available: https://www.routledge.com/Audio-Effects/Reissah2-McPhersonah2/p/book/9781466560284
+
+[4] R. Schultz et al., "FPGA Implementation of Audio Effects," *EE 552 Student Application Note*, University of Alberta, 2003. [Online]. Available: https://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/2003_w/misc/Audio_Effects/FPGA-effects.pdf
+
+[5] R. Woods, J. McAllister, G. Lightbody, and Y. Yi, *FPGA-based Implementation of Signal Processing Systems*, 2nd ed. Hoboken, NJ: John Wiley & Sons, 2017. doi: https://doi.org/10.1002/9781119079231
